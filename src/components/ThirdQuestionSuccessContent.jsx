@@ -10,25 +10,25 @@ const THEME = {
  */
 const ThirdQuestionSuccessContent = () => (
   <Box sx={{ mb: 4, textAlign: "left" }}>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       It was tempting.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       It seemed obvious.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       But then I thought:
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       "What if I'm wrong? What happens to trust if I give an unvalidated fix?"
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       Trust would break.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       So instead of rushing, I validated.
     </Typography>
-    <Box component="ul" sx={{ pl: 4, mb: 2, "& li": { mb: 1, lineHeight: 1.8, color: THEME.textMuted } }}>
+    <Box component="ul" sx={{ pl: 4, mb: 2, "& li": { mb: 1, lineHeight: 1.4, color: THEME.textMuted } }}>
       <li>If in sub-production, I tested by temporarily disabling the script.</li>
       <li>If only in production, I gathered strong log evidence.</li>
       <li>I ensured safe testing before recommending production changes.</li>
@@ -42,6 +42,7 @@ const ThirdQuestionSuccessContent = () => (
         letterSpacing: 1,
         fontSize: { xs: "1.25rem", sm: "1.5rem" },
       }}
+      textAlign='center'
     >
       ACCURACY BUILDS TRUST
     </Typography>
