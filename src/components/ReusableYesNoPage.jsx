@@ -3,6 +3,7 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import ReactConfetti from "react-confetti";
 import {  CustomImageBox } from "./CustomImage";
 import noHoverImg from '../assets/confused.PNG'
+import defImg from '../assets/agent_sri.jpeg';
 
 // ServiceNow light theme colors
 const THEME = {
@@ -58,7 +59,7 @@ const ReusableYesNoPage = ({
   successText,
   successContent,
   successImage,
-  defaultImage,
+  defaultImage = defImg,
   noHoverImage = noHoverImg,
   onYesClick,
   onYesClickDelay = 4000,
@@ -66,7 +67,6 @@ const ReusableYesNoPage = ({
   nextButtonText = "Continue",
   flyingButton = "no",
   onFlyingButtonClick,
-  onNoClick,
   yesButtonText = "Yes Obviously",
   noButtonText = "No Not at all",
   successTitle = "Yay!",
@@ -233,48 +233,56 @@ const ReusableYesNoPage = ({
           overflow: "visible",
         }}
       >
-        {imageTransition.src && (
+        {!accepted && (preambleContent ?? preambleParagraphs.length > 0) && (
           <Box
             sx={{
-              position: "absolute",
-              right: "31%",
-              top: "0%",
-              transform: imageTransition.visible
-                ? "scale(0.8)"
-                : "scale(0)",
-              
-              zIndex: 10,
-              opacity: imageTransition.visible ? 0.7 : 0,
-              transition: "opacity 0.5s ease-in-out, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
-              pointerEvents: "none",
+              mb: 3,
+              display: "flex",
+              alignItems: "flex-start",
+              gap: 2,
+              position: "relative",
             }}
           >
-            <CustomImageBox imageSrc={imageTransition.src} />
-          </Box>
-        )}
-
-        {!accepted && (preambleContent ?? preambleParagraphs.length > 0) && (
-          preambleContent ? (
-            preambleContent
-          ) : (
-            <Box sx={{ mb: 3 }}>
-              {preambleParagraphs.map((para, i) => (
-                <Typography
-                  key={i}
-                  variant="body1"
-                  sx={{
-                    mb: 2,
-                    textAlign: contentAlign,
-                    lineHeight: 1.4,
-                    color: THEME.textMuted,
-                    fontSize: "1rem",
-                  }}
-                >
-                  {para}
-                </Typography>
-              ))}
+            <Box sx={{ flex: 1, minWidth: 0 }}>
+              {preambleContent ? (
+                preambleContent
+              ) : (
+                preambleParagraphs.map((para, i) => (
+                  <Typography
+                    key={i}
+                    variant="body1"
+                    sx={{
+                      mb: 2,
+                      textAlign: contentAlign,
+                      lineHeight: 1.4,
+                      color: THEME.textMuted,
+                      fontSize: "1rem",
+                    }}
+                  >
+                    {para}
+                  </Typography>
+                ))
+              )}
             </Box>
-          )
+            {imageTransition.src && (
+              <Box
+                sx={{
+                  flexShrink: 0,
+                  opacity: imageTransition.visible ? 1 : 0,
+                  transform: imageTransition.visible
+                    ? "scale(0.8)"
+                    : "scale(0)",
+                  transformOrigin: "center center",
+                  filter:'drop-shadow(0 4px 12px rgba(41, 62, 64, 0.15))',
+                  transition:
+                    "opacity 0.5s ease-in-out, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  pointerEvents: "none",
+                }}
+              >
+                <CustomImageBox imageSrc={imageTransition.src} compact/>
+              </Box>
+            )}
+          </Box>
         )}
 
         {!accepted && (

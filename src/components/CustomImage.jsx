@@ -13,12 +13,14 @@ const CustomImage = ({ imageSrc }) => {
   );
 };
 
-const CustomImageBox = ({ imageSrc }) => {
+const CustomImageBox = ({ imageSrc, priority, compact }) => {
+  const size = compact
+    ? { width: 150,height: '150px' }
+    : { width: { xs: 200, sm: 250, md: 300 }, height: { xs: 170, sm: 245, md: 320 } };
   return (
     <Box
       sx={{
-        width: { xs: 200, sm: 250, md: 300 },
-        height: { xs: 170, sm: 245, md: 320 },
+        ...size,
         overflow: "hidden",
         borderRadius: 2,
         boxShadow: `0 8px 32px 0 rgba(0, 0, 0, 0.3)`,
@@ -29,10 +31,10 @@ const CustomImageBox = ({ imageSrc }) => {
         src={imageSrc}
         alt="Agent S"
         sx={{
-          width: { xs: 200, sm: 250, md: 300 },
+          width: compact ? 150 : { xs: 200, sm: 250, md: 300 },
           height: "auto",
           display: "block",
-          mt: "-36px",
+          mt: compact ? "-20px" : "-36px",
         }}
       />
     </Box>

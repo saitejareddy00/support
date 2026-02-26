@@ -1,6 +1,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
-import agentSImage from "../../assets/agent_s.PNG";
+import agentSImage from "../../assets/agent_sri.jpeg";
 import { CustomImageBox } from "../../components/CustomImage";
 
 // ServiceNow brand colors

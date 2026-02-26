@@ -3,7 +3,7 @@ import "./App.css";
 import { Box, Button } from "@mui/material";
 import { useRoutes, useNavigate } from "react-router-dom";
 import { HomePage } from "./pages/mindGame/HomePage";
-import agentSImage from "./assets/agent_s.PNG";
+import agentSImage from "./assets/agent_sri.jpeg";
 import { FirstQuestionPage } from "./pages/mindGame/FirstQuestion";
 import { SecondQuestionPage } from "./pages/mindGame/SecondQuestion";
 import { ThirdQuestionPage } from "./pages/mindGame/ThirdQuestion";

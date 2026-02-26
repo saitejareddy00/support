@@ -54,7 +54,8 @@ const FourthQuestionSuccessContent = () => (
       }}
       textAlign='center'
     >
-      TRUST DOESN'T END WITH FIX. IT CONTINUES WITH SUPPORT
+      TRUST DOESN'T END WITH FIX.<br />
+       IT CONTINUES WITH SUPPORT
     </Typography>
   </Box>
 );
