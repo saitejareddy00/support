@@ -64,7 +64,7 @@ const TrustStoryFinalPage = () => (
             pl: 4,
             mb: 2,
             fontSize: "1.1rem",
-            lineHeight: 1.8,
+            lineHeight: 1.4,
             color: SNOW.textMuted,
             "&::before": {
               content: '"•"',
@@ -87,7 +87,7 @@ const TrustStoryFinalPage = () => (
         sx={{
           color: SNOW.darkGreen,
           fontSize: { xs: "1rem", sm: "1.125rem" },
-          lineHeight: 1.8,
+          lineHeight: 1.4,
           fontWeight: 500,
           mb: 3,
         }}
@@ -170,7 +170,7 @@ const TrustStoryFinalPage = () => (
         }}
         textAlign='center'
       >
-        — Agent SRI
+        — Agent S
       </Typography>
     </Box>
   </Box>

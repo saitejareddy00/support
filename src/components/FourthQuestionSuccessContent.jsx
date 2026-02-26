@@ -10,37 +10,37 @@ const THEME = {
  */
 const FourthQuestionSuccessContent = () => (
   <Box sx={{ mb: 4, textAlign: "left" }}>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       I could.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       But then I thought:
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       "Does sending a written solution alone build maximum confidence?"
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       Not always.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       So I scheduled a call.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       On that call:
     </Typography>
-    <Box component="ul" sx={{ pl: 4, mb: 2, "& li": { mb: 1, lineHeight: 1.8, color: THEME.textMuted } }}>
+    <Box component="ul" sx={{ pl: 4, mb: 2, "& li": { mb: 1, lineHeight: 1.4, color: THEME.textMuted } }}>
       <li>I explained the root cause clearly</li>
       <li>Walked them through the resolution</li>
       <li>Performed live validation where possible</li>
       <li>Answered every question patiently</li>
     </Box>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       Only after ensuring they were comfortable did I move the case forward.
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem" }}>
       And I reassured them:
     </Typography>
-    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8, color: THEME.textMuted, fontSize: "1rem", fontStyle: "italic" }}>
+    <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.4, color: THEME.textMuted, fontSize: "1rem", fontStyle: "italic" }}>
       "If you face any challenges while implementing this, please update the case. I'm here to support you."
     </Typography>
     <Typography
@@ -52,6 +52,7 @@ const FourthQuestionSuccessContent = () => (
         letterSpacing: 1,
         fontSize: { xs: "1.25rem", sm: "1.5rem" },
       }}
+      textAlign='center'
     >
       TRUST DOESN'T END WITH FIX. IT CONTINUES WITH SUPPORT
     </Typography>

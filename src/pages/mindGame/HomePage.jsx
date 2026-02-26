@@ -1,5 +1,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
+import agentSImage from "../../assets/agent_s.PNG";
 
 // ServiceNow brand colors
 const SNOW = {
@@ -55,10 +56,10 @@ const HomePage = () => {
             color: SNOW.white,
             fontWeight: 700,
             fontSize: { xs: "1.75rem", sm: "2rem", md: "2.25rem" },
-            lineHeight: 1.2,
+            lineHeight: 1.4,
           }}
         >
-          by Agent SRI
+          by Agent S
         </Typography>
 
         <Box
@@ -70,12 +71,24 @@ const HomePage = () => {
           }}
         />
 
+        <Box
+          component="img"
+          src={agentSImage}
+          alt="Agent S"
+          sx={{
+            width: { xs: "200px", sm: "250px", md: "300px" },
+            height: "auto",
+            borderRadius: 2,
+            boxShadow: `0 8px 32px 0 rgba(0, 0, 0, 0.3)`,
+          }}
+        />
+
         <Typography
           variant="body1"
           sx={{
             color: SNOW.offWhite,
             fontSize: { xs: "1rem", sm: "1.125rem" },
-            lineHeight: 1.8,
+            lineHeight: 1.4,
           }}
         >
           Hi, I'm Agent S, a Technical Support Engineer.
@@ -86,7 +99,7 @@ const HomePage = () => {
           sx={{
             color: SNOW.offWhite,
             fontSize: { xs: "1rem", sm: "1.125rem" },
-            lineHeight: 1.8,
+            lineHeight: 1.4,
           }}
         >
           I help customers tackle complex technical issues by delivering
@@ -101,7 +114,7 @@ const HomePage = () => {
             sx={{
               color: SNOW.lightGreen,
               fontSize: { xs: "1rem", sm: "1.125rem" },
-              lineHeight: 1.8,
+              lineHeight: 1.4,
               fontWeight: 600,
             }}
           >

@@ -219,7 +219,7 @@ const ReusableYesNoPage = ({
                   sx={{
                     mb: 2,
                     textAlign: contentAlign,
-                    lineHeight: 1.8,
+                    lineHeight: 1.4,
                     color: THEME.textMuted,
                     fontSize: "1rem",
                   }}
@@ -274,7 +274,7 @@ const ReusableYesNoPage = ({
                     sx={{
                       mb: 2,
                       textAlign: contentAlign,
-                      lineHeight: 1.8,
+                      lineHeight: 1.4,
                       color: THEME.textMuted,
                       fontSize: "1rem",
                     }}

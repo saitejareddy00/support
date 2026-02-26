@@ -17,7 +17,7 @@ const SecondQuestionPage = () => {
       yesButtonText="Yes"
       noButtonText="No"
       contentAlign="left"
-      flyingButton="no"
+      flyingButton="yes"
     />
   );
 };
