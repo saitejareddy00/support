@@ -1,7 +1,8 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import ReactConfetti from "react-confetti";
-import { CustomImage } from "./CustomImage";
+import {  CustomImageBox } from "./CustomImage";
+import noHoverImg from '../assets/confused.PNG'
 
 // ServiceNow light theme colors
 const THEME = {
@@ -58,7 +59,7 @@ const ReusableYesNoPage = ({
   successContent,
   successImage,
   defaultImage,
-  noHoverImage,
+  noHoverImage = noHoverImg,
   onYesClick,
   onYesClickDelay = 4000,
   showNextButton = false,
@@ -75,6 +76,10 @@ const ReusableYesNoPage = ({
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [accepted, setAccepted] = useState(false);
   const [showNoImage, setShowNoImage] = useState(false);
+  const [imageTransition, setImageTransition] = useState({
+    src: null,
+    visible: false,
+  });
 
   const displayImage =
     showNoImage && noHoverImage
@@ -82,6 +87,32 @@ const ReusableYesNoPage = ({
       : accepted
       ? successImage
       : defaultImage || successImage;
+
+  const hadImageRef = useRef(false);
+
+  // Preload images on mount so they're cached before hover/display
+  useEffect(() => {
+    const toPreload = [noHoverImage, successImage, defaultImage].filter(Boolean);
+    [...new Set(toPreload)].forEach((src) => {
+      const url = typeof src === "string" ? src : src?.default;
+      if (url) {
+        const img = new Image();
+        img.src = url;
+      }
+    });
+  }, [noHoverImage, successImage, defaultImage]);
+
+  useEffect(() => {
+    if (displayImage) {
+      hadImageRef.current = true;
+      setImageTransition({ src: displayImage, visible: true });
+    } else if (hadImageRef.current) {
+      hadImageRef.current = false;
+      setImageTransition((prev) => ({ ...prev, visible: false }));
+      const id = setTimeout(() => setImageTransition({ src: null, visible: false }), 300);
+      return () => clearTimeout(id);
+    }
+  }, [displayImage]);
 
   const handleYesClick = useCallback(() => {
     setAccepted(true);
@@ -101,19 +132,19 @@ const ReusableYesNoPage = ({
   const handleFlyingButtonInteraction = useCallback(() => {
     if (!accepted) {
       setFlyingHovered(true);
-      if (flyingButton === "no") setShowNoImage(true);
+      setShowNoImage(true);
       setPosition(getRandomPosition());
       if (typeof onFlyingButtonClick === "function") {
         onFlyingButtonClick();
       }
     }
-  }, [accepted, flyingButton, onFlyingButtonClick]);
+  }, [accepted, onFlyingButtonClick]);
 
   const handleFlyingButtonLeave = useCallback(() => {
     setTimeout(() => {
-      if (flyingButton === "no") setShowNoImage(false);
+      setShowNoImage(false);
     }, 1000);
-  }, [flyingButton]);
+  }, []);
 
 
   const paragraphs = Array.isArray(successText)
@@ -190,6 +221,7 @@ const ReusableYesNoPage = ({
 
       <Box
         sx={{
+          position: "relative",
           maxWidth: 680,
           width: "100%",
           mx: 2,
@@ -201,9 +233,23 @@ const ReusableYesNoPage = ({
           overflow: "visible",
         }}
       >
-        {displayImage && (
-          <Box sx={{ mb: 3, display: "flex", justifyContent: "center" }}>
-            <CustomImage imageSrc={displayImage} />
+        {imageTransition.src && (
+          <Box
+            sx={{
+              position: "absolute",
+              right: "31%",
+              top: "0%",
+              transform: imageTransition.visible
+                ? "scale(0.8)"
+                : "scale(0)",
+              
+              zIndex: 10,
+              opacity: imageTransition.visible ? 0.7 : 0,
+              transition: "opacity 0.5s ease-in-out, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              pointerEvents: "none",
+            }}
+          >
+            <CustomImageBox imageSrc={imageTransition.src} />
           </Box>
         )}
 

@@ -1,6 +1,7 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import agentSImage from "../../assets/agent_s.PNG";
+import { CustomImageBox } from "../../components/CustomImage";
 
 // ServiceNow brand colors
 const SNOW = {
@@ -62,26 +63,7 @@ const HomePage = () => {
           by Agent S
         </Typography>
 
-        <Box
-          sx={{
-            width: 64,
-            height: 4,
-            borderRadius: 2,
-            backgroundColor: SNOW.lightGreen,
-          }}
-        />
-
-        <Box
-          component="img"
-          src={agentSImage}
-          alt="Agent S"
-          sx={{
-            width: { xs: "200px", sm: "250px", md: "300px" },
-            height: "auto",
-            borderRadius: 2,
-            boxShadow: `0 8px 32px 0 rgba(0, 0, 0, 0.3)`,
-          }}
-        />
+        <CustomImageBox imageSrc={agentSImage} priority />
 
         <Typography
           variant="body1"
